@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">
-    <img alt="devfinance" src=".github/covertodo.png" />
+    <img alt="devfinance" src=".github/covertodoo.png" />
 </h1>
 
 <br>
