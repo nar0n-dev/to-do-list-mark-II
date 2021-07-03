@@ -1,4 +1,6 @@
 import React, { createContext, ReactNode, useState } from "react";
+import { useAuth } from "../hooks/useAuth";
+import { database } from "../services/firebase";
 
 type TaskType = {
   uid: number
@@ -22,15 +24,18 @@ export const TaskContext = createContext({} as PropsTaskContext);
 export const TaskContextProvider = ({ children }: TaskContextProviderProps) => {
   const [tasks, setTasks] = useState<TaskType[]>([])
 
-  const handleRemoveTask = (uid: number) => {
-    const removeTask = tasks.filter(task => task.uid !== uid)
-    setTasks(removeTask)
+  const { user } = useAuth()
+
+  const handleRemoveTask = async (uid: string) => {
+    if(window.confirm('Are you sure you want to remove this task?')) {
+        await database.ref(`tasks/${user?.id}/task/${uid}`).remove();
+    }
   }
 
-  const handleIsCompletedTask = (uid: number) => {
-    const finishTask = tasks.map(tasks => tasks.uid === uid ? {...tasks, isCompleted: !tasks.isCompleted} : tasks)
-    setTasks(finishTask)
-    console.log(finishTask)
+  const handleIsCompletedTask = async (uid: number) => {   
+    await database.ref(`tasks/${user?.id}/task/${uid}`).update({
+     isCompleted: true
+    })
   }
 
   return (

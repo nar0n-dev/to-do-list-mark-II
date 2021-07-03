@@ -1,12 +1,15 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import { TaskContextProvider } from '../contexts/TaskContext';
+import { AuthContextProvider } from '../contexts/AuthContext';
 
 export function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider>
-      <TaskContextProvider>
-        <Component {...pageProps} />
-      </TaskContextProvider>
+      <AuthContextProvider>
+        <TaskContextProvider>
+          <Component {...pageProps} />
+        </TaskContextProvider>
+      </AuthContextProvider>
     </ChakraProvider>
   );
 }
