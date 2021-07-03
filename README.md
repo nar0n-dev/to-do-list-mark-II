@@ -15,6 +15,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Chakra-UI]
 - [Next.js]
 - [TypeScript]
+- [Firebase]
 
 ## 🚀 Como executar
 
@@ -38,6 +39,6 @@ O app estará disponível no seu browser pelo endereço http://localhost:3000.
 
 ## 💻 Projeto
 
-To do foi criado com o objetivo de auxiliar o usuário com as tarefas e atividades do dia-a-dia, de uma forma simples e amigável de interação. Atualmente o App, não armazena os dados, ou seja, ao atualizar a página os dados vão sumir, em breve farei mais atualizações.
+To do foi criado com o objetivo de auxiliar o usuário com as tarefas e atividades do dia-a-dia, de uma forma simples e amigável de interação. Atualmente o App, armazena os dados no firebase (Realtime Database), em breve farei mais atualizações.
 
 Feito com 💜 por nar0n 👋🏻.
